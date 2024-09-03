@@ -1,0 +1,14 @@
+esources:
+- name: git-repo-hello-world
+  type: git
+  source:
+    uri: https://github.com/ctrombet/concourse-tutorial.git
+    branch: main
+
+jobs:
+- name: job-hello-world-tromb
+  public: true
+  plan:
+  - get: git-repo-hello-world
+  - task: hello-world
+    file: git-repo-hello-world/pipelines/hello_world.yaml
